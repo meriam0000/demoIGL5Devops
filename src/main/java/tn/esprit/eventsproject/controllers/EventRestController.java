@@ -1,5 +1,6 @@
 package tn.esprit.eventsproject.controllers;
 
+import jdk.internal.instrumentation.Logger;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,6 @@ import tn.esprit.eventsproject.services.IEventServices;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.logging.Logger;
 
 @RequiredArgsConstructor
 @RequestMapping("events")
@@ -24,7 +24,8 @@ public class EventRestController {
     }
     @PostMapping("/addEvent/{id}")
     public Event addEventPart(@RequestBody Event event, @PathVariable("id") int idPart){
-        return eventServices.addAffectEvenParticipant(event, idPart);
+        Log.info("new branch") ;
+    return eventServices.addAffectEvenParticipant(event, idPart);
     }
     @PostMapping("/addEvent")
     public Event addEvent(@RequestBody Event event){
@@ -33,6 +34,7 @@ public class EventRestController {
     @PutMapping("/addAffectLog/{description}")
     public Logistics addAffectLog(@RequestBody Logistics logistics,@PathVariable("description") String descriptionEvent){
         return eventServices.addAffectLog(logistics,descriptionEvent);
+        Log.info("Logistics added");
     }
     @GetMapping("/getLogs/{d1}/{d2}")
     public List<Logistics> getLogistiquesDates (@PathVariable("d1") LocalDate date_debut, @PathVariable("d2") LocalDate date_fin){
