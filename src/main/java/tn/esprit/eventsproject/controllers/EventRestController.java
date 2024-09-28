@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @RequiredArgsConstructor
-@RequestMapping("event")
+@RequestMapping("events")
 @RestController
 public class EventRestController {
     private final IEventServices eventServices;
