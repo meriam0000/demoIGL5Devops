@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping("event")
+@RequestMapping("events")
 @RestController
 public class EventRestController {
     private final IEventServices eventServices;
